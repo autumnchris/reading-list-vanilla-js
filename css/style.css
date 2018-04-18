@@ -134,6 +134,19 @@ main {
   max-width: 100px;
 }
 
+.modal-body .error-message {
+  background-color: #fcf8e3;
+  border: 1px solid #faebcc;
+  border-radius: 3px;
+  color: #8a6d3b;
+  display: none;
+  line-height: 20px;
+  margin: 10px 0;
+  padding: 15px 10px;
+  text-align: center;
+  width: 100%;
+}
+
 .modal-body input[type=submit],
 .modal-body input[type=submit]:active,
 .modal-body input[type=submit]:focus,
