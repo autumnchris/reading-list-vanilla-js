@@ -45,3 +45,10 @@ body {
   padding: 2% 20px 70px;
   position: relative;
 }
+
+h1 {
+  color: #256874;
+  font-family: Allan;
+  letter-spacing: 4px;
+  text-align: center;
+}
