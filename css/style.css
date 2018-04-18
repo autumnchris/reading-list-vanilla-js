@@ -67,6 +67,87 @@ h1 {
   background-color: #1f5761;
 }
 
+#modal {
+  background-color: rgba(0, 0, 0, 0.75);
+  display: none;
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.modal-content {
+  animation: slideIn 0.3s ease-out;
+  background-color: #fff;
+  border-radius: 0;
+  margin: 10% auto;
+  max-width: 400px;
+  width: 70%;
+}
+
+@keyframes slideIn {
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: 10%;
+  }
+}
+
+.modal-header {
+  background-color: #256874;
+  color: #fff;
+  padding: 10px;
+}
+
+.modal-header h2 {
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin: 0;
+}
+
+.modal-body {
+  padding: 10px;
+}
+
+.modal-body .form-group,
+.modal-body .button-group {
+  margin: 10px;
+  text-align: right;
+}
+
+.modal-body input[type=text] {
+  border: 1px solid #256874;
+  border-radius: 0;
+  padding: 5px;
+}
+
+.modal-body #pages-input {
+  max-width: 100px;
+}
+
+.modal-body input[type=submit],
+.modal-body input[type=submit]:active,
+.modal-body input[type=submit]:focus,
+.modal-body input[type=button],
+.modal-body input[type=button]:active,
+.modal-body input[type=button]:focus {
+  background-color: #256874;
+  border-radius: 3px;
+  color: #fff;
+  margin-top: 10px;
+  margin-left: 5px;
+  padding: 10px;
+}
+
+.modal-body input[type=submit]:hover,
+.modal-body input[type=button]:hover {
+  background-color: #1f5761;
+}
+
 .no-books {
   background: rgba(255, 255, 255, 0.5);
   display: none;
