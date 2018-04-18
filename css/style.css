@@ -53,6 +53,11 @@ h1 {
   text-align: center;
 }
 
+main {
+  margin: auto;
+  max-width: 1000px;
+}
+
 .add-book,
 .add-book:active,
 .add-book:focus {
