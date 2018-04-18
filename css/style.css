@@ -67,6 +67,14 @@ h1 {
   background-color: #1f5761;
 }
 
+.no-books {
+  background: rgba(255, 255, 255, 0.5);
+  display: none;
+  line-height: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
 footer {
   background-color: #256874;
   bottom: 0;
