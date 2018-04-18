@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+a,
+a:visited,
+a:active,
+a:focus {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button,
+button:hover,
+button:active,
+button:focus,
+input[type=submit],
+input[type=submit]:hover,
+input[type=submit]:active,
+input[type=submit]:focus,
+input[type=button],
+input[type=button]:hover,
+input[type=button]:active,
+input[type=button]:focus {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+html {
+  font-size: 10px;
+  height: 100%;
+}
+
+body {
+  background: #c5e7ed;
+  background: linear-gradient(to right, #c5e7ed, #66b2bf) fixed;
+  color: #333;
+  font: 14px "Fira Sans", Helvetica, Arial, sans-serif;
+  letter-spacing: 1px;
+  min-height: 100%;
+  padding: 2% 20px 70px;
+  position: relative;
+}
