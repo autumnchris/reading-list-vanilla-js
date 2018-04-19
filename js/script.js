@@ -1,4 +1,4 @@
-let readingList = [];
+let readingList = JSON.parse(localStorage.getItem('readingList')) || [];
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -42,6 +42,7 @@ function populateReadingList() {
     readingList.splice(event.target.parentNode.dataset.index, 1);
     document.querySelector('tbody').removeChild(event.target.parentNode.parentNode.parentNode);
     populateReadingList();
+    localStorage.setItem('readingList', JSON.stringify(readingList));
   }
 
   document.querySelectorAll('.remove-book').forEach(i => {
@@ -68,6 +69,7 @@ function addNewBook(event) {
     const newBook = new Book(titleInput, authorInput, pagesInput, readInput ? true : false);
     readingList.push(newBook);
     populateReadingList();
+    localStorage.setItem('readingList', JSON.stringify(readingList));
     document.getElementById('modal').style.display = 'none';
     document.querySelector('.new-book').reset();
   }
