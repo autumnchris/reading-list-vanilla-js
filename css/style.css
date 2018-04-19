@@ -35,6 +35,10 @@ input[type=button]:focus {
   cursor: pointer;
 }
 
+input[type=checkbox] {
+  cursor: pointer;
+}
+
 html {
   font-size: 10px;
   height: 100%;
