@@ -6,3 +6,7 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
 }
+
+document.querySelector('.add-book').addEventListener('click', () => {
+  document.getElementById('modal').style.display = 'block';
+});
