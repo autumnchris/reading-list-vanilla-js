@@ -65,6 +65,10 @@ document.querySelector('.add-book').addEventListener('click', () => {
   document.getElementById('modal').style.display = 'block';
 });
 
+document.querySelector('.new-book').addEventListener('submit', () => {
+  addNewBook(event);
+});
+
 document.querySelector('.cancel').addEventListener('click', () => {
   document.getElementById('modal').style.display = 'none';
 });
