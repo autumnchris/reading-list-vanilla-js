@@ -75,6 +75,14 @@ function addNewBook(event) {
   }
 }
 
+function toggleRead(event) {
+
+  if (!event.target.matches('input[type=checkbox]')) return;
+  readingList[event.target.dataset.index].read = !readingList[event.target.dataset.index].read;
+  localStorage.setItem('readingList', JSON.stringify(readingList));
+  populateReadingList();
+}
+
 document.querySelector('.add-book').addEventListener('click', () => {
   document.getElementById('modal').style.display = 'block';
 });
