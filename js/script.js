@@ -83,6 +83,10 @@ function toggleRead(event) {
   populateReadingList();
 }
 
+document.querySelector('tbody').addEventListener('click', () => {
+  toggleRead(event);
+});
+
 document.querySelector('.add-book').addEventListener('click', () => {
   document.getElementById('modal').style.display = 'block';
 });
