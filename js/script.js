@@ -37,6 +37,12 @@ function populateReadingList() {
       </td>
     </tr>`;
   }).sort().join('');
+
+  function removeBook(event) {
+    readingList.splice(event.target.parentNode.dataset.index, 1);
+    document.querySelector('tbody').removeChild(event.target.parentNode.parentNode.parentNode);
+    populateReadingList();
+  }
 }
 
 populateReadingList();
