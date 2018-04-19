@@ -175,6 +175,16 @@ main {
   background-color: #1f5761;
 }
 
+.table {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
 .no-books {
   background: rgba(255, 255, 255, 0.5);
   display: none;
