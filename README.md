@@ -4,6 +4,15 @@ My project for the [Library assignment](https://www.theodinproject.com/courses/j
 
 ---
 
+## Built With
+* JavaScript
+* CSS3
+* HTML5
+* LocalStorage
+* [Google Fonts](https://fonts.google.com)
+* [Normalize.css](http://necolas.github.io/normalize.css)
+* [Font Awesome](https://fontawesome.com)
+
 ## Demo
 
 View project demo at [https://autumnchris.github.io/reading-list](https://autumnchris.github.io/reading-list).
