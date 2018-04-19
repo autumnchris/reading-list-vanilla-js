@@ -41,6 +41,26 @@ function populateReadingList() {
 
 populateReadingList();
 
+function addNewBook(event) {
+  event.preventDefault();
+  const titleInput = document.getElementById('title-input').value;
+  const authorInput = document.getElementById('author-input').value;
+  const pagesInput = document.getElementById('pages-input').value;
+  const readInput = document.getElementById('read-input').checked;
+
+  if (!pagesInput.match(/^[0-9]+$/) || pagesInput < 0) {
+    document.querySelector('.error-message').style.display = 'block';
+  }
+  else {
+    document.querySelector('.error-message').style.display = 'none';
+    const newBook = new Book(titleInput, authorInput, pagesInput, readInput ? true : false);
+    readingList.push(newBook);
+    populateReadingList();
+    document.getElementById('modal').style.display = 'none';
+    document.querySelector('.new-book').reset();
+  }
+}
+
 document.querySelector('.add-book').addEventListener('click', () => {
   document.getElementById('modal').style.display = 'block';
 });
