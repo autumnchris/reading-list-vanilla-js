@@ -185,6 +185,14 @@ table {
   width: 100%;
 }
 
+th {
+  background-color: #256874;
+  color: #fff;
+  letter-spacing: 2px;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
 .no-books {
   background: rgba(255, 255, 255, 0.5);
   display: none;
