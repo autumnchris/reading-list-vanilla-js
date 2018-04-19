@@ -43,6 +43,12 @@ function populateReadingList() {
     document.querySelector('tbody').removeChild(event.target.parentNode.parentNode.parentNode);
     populateReadingList();
   }
+
+  document.querySelectorAll('.remove-book').forEach(i => {
+    i.addEventListener('click', () => {
+      removeBook(event);
+    });
+  });
 }
 
 populateReadingList();
