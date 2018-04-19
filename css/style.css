@@ -193,6 +193,37 @@ th {
   text-transform: uppercase;
 }
 
+tbody tr {
+  background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #c5e7ed;
+}
+
+td {
+  line-height: 24px;
+  padding: 10px;
+  text-align: center;
+}
+
+td:first-child {
+  text-align: left;
+}
+
+.remove-book,
+.remove-book:active,
+.remove-book:focus {
+  box-shadow: none;
+  color: #256874;
+  margin: 0;
+  padding: 0;
+}
+
+.remove-book:hover {
+  color: #1f5761;
+}
+
 .no-books {
   background: rgba(255, 255, 255, 0.5);
   display: none;
