@@ -224,6 +224,10 @@ td:first-child {
   color: #1f5761;
 }
 
+.fa-times {
+  pointer-events: none;
+}
+
 .no-books {
   background: rgba(255, 255, 255, 0.5);
   display: none;
