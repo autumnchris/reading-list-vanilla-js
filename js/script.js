@@ -47,7 +47,7 @@ function populateReadingList() {
   }
 
   document.querySelectorAll('.remove-book').forEach(i => {
-    i.addEventListener('click', () => {
+    i.addEventListener('click', (event) => {
       removeBook(event);
     });
   });
@@ -62,7 +62,7 @@ function addNewBook(event) {
   const pagesInput = document.getElementById('pages-input').value;
   const readInput = document.getElementById('read-input').checked;
 
-  if (!pagesInput.match(/^[0-9]+$/) || pagesInput < 0) {
+  if (isNaN(pagesInput) || pagesInput < 0) {
     document.querySelector('.error-message').style.display = 'block';
   }
   else {
@@ -84,7 +84,7 @@ function toggleRead(event) {
   populateReadingList();
 }
 
-document.querySelector('tbody').addEventListener('click', () => {
+document.querySelector('tbody').addEventListener('click', (event) => {
   toggleRead(event);
 });
 
@@ -92,7 +92,7 @@ document.querySelector('.add-book').addEventListener('click', () => {
   document.getElementById('modal').style.display = 'block';
 });
 
-document.querySelector('.new-book').addEventListener('submit', () => {
+document.querySelector('.new-book').addEventListener('submit', (event) => {
   addNewBook(event);
 });
 
