@@ -10,7 +10,6 @@ My project for the [Library assignment](https://www.theodinproject.com/courses/j
 * HTML5
 * LocalStorage
 * [Google Fonts](https://fonts.google.com)
-* [Normalize.css](http://necolas.github.io/normalize.css)
 * [Font Awesome](https://fontawesome.com)
 
 ## Demo

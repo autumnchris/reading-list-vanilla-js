@@ -1,76 +1,33 @@
-* {
-  box-sizing: border-box;
-}
-
 *:focus {
   box-shadow: 0 0 3px 3px rgba(65, 180, 250, 0.8);
   outline: none;
 }
 
-a,
-a:visited,
-a:active,
-a:focus {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-button,
-button:hover,
-button:active,
-button:focus,
-input[type=submit],
-input[type=submit]:hover,
-input[type=submit]:active,
-input[type=submit]:focus,
-input[type=button],
-input[type=button]:hover,
-input[type=button]:active,
-input[type=button]:focus {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-input[type=checkbox] {
-  cursor: pointer;
-}
-
 html {
-  font-size: 10px;
-  height: 100%;
-}
-
-body {
   background: #c5e7ed;
   background: linear-gradient(to right, #c5e7ed, #66b2bf) fixed;
-  color: #333;
-  font: 14px "Fira Sans", Helvetica, Arial, sans-serif;
-  letter-spacing: 1px;
-  min-height: 100%;
-  padding: 2% 20px 70px;
-  position: relative;
 }
 
 h1 {
   color: #256874;
-  font-family: Allan;
+  font-family: Allan, "Fira Sans", Helvetica, Arial, sans-serif;
+  font-size: 1.8rem;
   letter-spacing: 4px;
+  padding-top: 4%;
   text-align: center;
 }
 
 main {
   margin: auto;
   max-width: 1000px;
+  padding-top: 20px;
+  padding-bottom: 70px;
 }
 
 .add-book,
 .add-book:active,
 .add-book:focus {
-  background-color: #256874;
+  background: #256874;
   border-radius: 3px;
   color: #fff;
   margin: 20px 0;
@@ -78,16 +35,18 @@ main {
 }
 
 .add-book:hover {
-  background-color: #1f5761;
+  background: #1f5761;
 }
 
 #modal {
-  background-color: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.75);
+  bottom: 0;
   display: none;
   height: 100%;
   left: 0;
   overflow: auto;
   position: fixed;
+  right: 0;
   top: 0;
   width: 100%;
   z-index: 1;
@@ -95,8 +54,7 @@ main {
 
 .modal-content {
   animation: slideIn 0.3s ease-out;
-  background-color: #fff;
-  border-radius: 0;
+  background: #fff;
   margin: 10% auto;
   max-width: 400px;
   width: 70%;
@@ -112,15 +70,14 @@ main {
 }
 
 .modal-header {
-  background-color: #256874;
-  color: #fff;
+  background: #256874;
   padding: 10px;
 }
 
 .modal-header h2 {
-  font-size: 1.8rem;
+  color: #fff;
+  font-size: 1.1rem;
   font-weight: 300;
-  margin: 0;
 }
 
 .modal-body {
@@ -135,7 +92,6 @@ main {
 
 .modal-body input[type=text] {
   border: 1px solid #256874;
-  border-radius: 0;
   padding: 5px;
 }
 
@@ -144,7 +100,7 @@ main {
 }
 
 .modal-body .error-message {
-  background-color: #fcf8e3;
+  background: #fcf8e3;
   border: 1px solid #faebcc;
   border-radius: 3px;
   color: #8a6d3b;
@@ -162,7 +118,7 @@ main {
 .modal-body input[type=button],
 .modal-body input[type=button]:active,
 .modal-body input[type=button]:focus {
-  background-color: #256874;
+  background: #256874;
   border-radius: 3px;
   color: #fff;
   margin-top: 10px;
@@ -180,13 +136,12 @@ main {
 }
 
 table {
-  border-collapse: collapse;
-  font-size: 1.2rem;
+  font-size: 0.75rem;
   width: 100%;
 }
 
 th {
-  background-color: #256874;
+  background: #256874;
   color: #fff;
   letter-spacing: 2px;
   padding: 10px;
@@ -194,11 +149,11 @@ th {
 }
 
 tbody tr {
-  background-color: #fff;
+  background: #fff;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #c5e7ed;
+  background: #c5e7ed;
 }
 
 td {
@@ -214,10 +169,7 @@ td:first-child {
 .remove-book,
 .remove-book:active,
 .remove-book:focus {
-  box-shadow: none;
   color: #256874;
-  margin: 0;
-  padding: 0;
 }
 
 .remove-book:hover {
@@ -237,14 +189,13 @@ td:first-child {
 }
 
 footer {
-  background-color: #256874;
+  background: #256874;
   bottom: 0;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   left: 0;
   letter-spacing: 2px;
-  margin: 0;
-  padding: 12px 0;
+  padding: 14px 0;
   position: absolute;
   right: 0;
   text-align: center;
