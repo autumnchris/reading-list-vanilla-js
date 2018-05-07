@@ -145,6 +145,7 @@ th {
   color: #fff;
   letter-spacing: 2px;
   padding: 10px;
+  text-align: center;
   text-transform: uppercase;
 }
 
@@ -164,6 +165,10 @@ td {
 
 td:first-child {
   text-align: left;
+}
+
+td form {
+  text-align: center;
 }
 
 .remove-book,
