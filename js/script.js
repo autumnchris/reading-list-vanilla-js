@@ -39,7 +39,6 @@ function populateReadingList() {
   }).sort().join('');
 
   function removeBook(event) {
-    console.log(event);
     readingList.splice(event.target.dataset.index, 1);
     document.querySelector('tbody').removeChild(event.target.parentNode.parentNode);
     populateReadingList();
