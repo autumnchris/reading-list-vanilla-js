@@ -56,17 +56,19 @@ populateReadingList();
 
 function addNewBook(event) {
   event.preventDefault();
-  const titleInput = document.getElementById('title-input').value;
-  const authorInput = document.getElementById('author-input').value;
-  const pagesInput = document.getElementById('pages-input').value;
-  const readInput = document.getElementById('read-input').checked;
+  const form = {
+    title: document.getElementById('title-input').value,
+    author: document.getElementById('author-input').value,
+    pages: document.getElementById('pages-input').value,
+    read: document.getElementById('read-input').checked
+  };
 
-  if (isNaN(pagesInput) || pagesInput < 0) {
+  if (isNaN(form.pages) || form.pages < 0) {
     document.querySelector('.error-message').style.display = 'block';
   }
   else {
     document.querySelector('.error-message').style.display = 'none';
-    const newBook = new Book(titleInput, authorInput, pagesInput, readInput ? true : false);
+    const newBook = new Book(form.title, form.author, form.pages, form.read ? true : false);
     readingList.push(newBook);
     populateReadingList();
     localStorage.setItem('readingList', JSON.stringify(readingList));
