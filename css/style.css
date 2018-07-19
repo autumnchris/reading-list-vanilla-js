@@ -181,7 +181,7 @@ main {
 }
 
 .book-card hr {
-  border: 1px solid #94ebd8;
+  border-bottom: 1px solid #256874;
   margin: 8px 0;
 }
 
