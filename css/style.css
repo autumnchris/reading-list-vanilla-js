@@ -190,6 +190,59 @@ main {
   margin: 10px 0;
 }
 
+.check-label {
+  cursor: pointer;
+  max-width: 150px;
+  padding: 5px 5px 5px 25px;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input[type=checkbox] {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkmark {
+  background: #fff;
+  border: 1px solid #256874;
+  height: 16px;
+  left: 0;
+  margin: 5px;
+  position: absolute;
+  top: 0;
+  width: 16px;
+}
+
+input:checked ~ .checkmark {
+  background: #256874;
+}
+
+.checkmark:after {
+  content: "";
+  display: none;
+  position: absolute;
+}
+
+input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.check-label .checkmark:after {
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  height: 6px;
+  left: 4px;
+  top: 1px;
+  width: 3px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 .no-books {
   color: #fff;
   display: none;

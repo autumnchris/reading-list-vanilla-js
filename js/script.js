@@ -33,8 +33,10 @@ function populateReadingList() {
         <div class="author">by ${book.author}</div>
         <div class="pages">Pages: ${book.pages}</div>
         <form>
-          <input type="checkbox" data-index="${i}" id="read ${i}" ${book.read ? 'checked' : ''} />
-          <label for="read ${i}">Read</label>
+          <label class="check-label" for="read ${i}">Read
+            <input type="checkbox" data-index="${i}" name="read-input" tabindex="-1" id="read ${i}" ${book.read ? 'checked' : ''} />
+            <span class="checkmark" tabindex="0"></span>
+          </label>
         </form>
       </div>
     </div>`;
