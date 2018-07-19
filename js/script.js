@@ -37,7 +37,7 @@ function populateReadingList() {
       </td>
     </tr>`;
   }).sort((a, b) => {
-    return a.toUpperCase() > b.toUpperCase();
+    return a.toLowerCase().localeCompare(b.toLowerCase());
   }).join('');
 
   function removeBook(event) {
