@@ -10,46 +10,48 @@ function Book(title, author, pages, read) {
 function populateReadingList() {
 
   if (readingList.length === 0) {
-    document.querySelector('.table').style.display = 'none';
+    document.querySelector('.reading-list').style.display = 'none';
     document.querySelector('.no-books').style.display = 'block';
   }
   else {
     document.querySelector('.no-books').style.display = 'none';
-    document.querySelector('.table').style.display = 'block';
+    document.querySelector('.reading-list').style.display = 'block';
   }
 
-  document.querySelector('tbody').innerHTML = readingList.map((book, i) => {
-    return `<tr>
-      <td>
-        <cite>${book.title}</cite>
-      </td>
-      <td>${book.author}</td>
-      <td>${book.pages}</td>
-      <td>
-        <form>
-          <input type="checkbox" data-index="${i}" aria-label="check if read" ${book.read ? 'checked' : ''} />
-        </form>
-      </td>
-      <td>
-        <button type="button" class="remove-book" data-index="${i}" aria-label="remove book" title="Remove">
-          <span class="fas fa-times fa-lg"></span>
+  document.querySelector('.reading-list').innerHTML = readingList.map((book, i) => {
+    return `<div class="book-card">
+      <div class="row">
+        <h2>
+          <cite>${book.title}</cite>
+        </h2>
+        <button type="button" class="delete-book" data-index="${i}" aria-label="delete book" title="Delete">
+          <span class="fa fa-trash-alt"></span>
         </button>
-      </td>
-    </tr>`;
+      </div>
+      <div class="row">
+        <hr>
+        <div class="author">by ${book.author}</div>
+        <div class="pages">Pages: ${book.pages}</div>
+        <form>
+          <input type="checkbox" data-index="${i}" id="read ${i}" ${book.read ? 'checked' : ''} />
+          <label for="read ${i}">Read</label>
+        </form>
+      </div>
+    </div>`;
   }).sort((a, b) => {
     return a.toLowerCase().localeCompare(b.toLowerCase());
   }).join('');
 
-  function removeBook(event) {
+  function deleteBook(event) {
     readingList.splice(event.target.dataset.index, 1);
-    document.querySelector('tbody').removeChild(event.target.parentNode.parentNode);
+    document.querySelector('.reading-list').removeChild(event.target.parentNode.parentNode);
     populateReadingList();
     localStorage.setItem('readingList', JSON.stringify(readingList));
   }
 
-  document.querySelectorAll('.remove-book').forEach(i => {
+  document.querySelectorAll('.delete-book').forEach(i => {
     i.addEventListener('click', (event) => {
-      removeBook(event);
+      deleteBook(event);
     });
   });
 }
@@ -87,7 +89,7 @@ function toggleRead(event) {
   populateReadingList();
 }
 
-document.querySelector('tbody').addEventListener('click', (event) => {
+document.querySelector('.reading-list').addEventListener('click', (event) => {
   toggleRead(event);
 });
 

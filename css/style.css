@@ -4,38 +4,49 @@
 }
 
 html {
-  background: #c5e7ed;
-  background: linear-gradient(to right, #c5e7ed, #66b2bf) fixed;
+  background: #256874;
+  background: linear-gradient(to right, #256874, #2b7a88) fixed;
+}
+
+button,
+button:hover,
+button:active,
+button:focus,
+input[type=submit],
+input[type=submit]:hover,
+input[type=submit]:active,
+input[type=submit]:focus,
+input[type=button],
+input[type=button]:hover,
+input[type=button]:active,
+input[type=button]:focus {
+  border-radius: 3px;
+  padding: 10px;
 }
 
 h1 {
-  color: #256874;
+  color: #fff;
   font-family: Allan, "Fira Sans", Helvetica, Arial, sans-serif;
   font-size: 1.8rem;
-  letter-spacing: 4px;
+  letter-spacing: 5px;
   padding-top: 4%;
   text-align: center;
 }
 
 main {
   margin: auto;
-  max-width: 1000px;
+  max-width: 500px;
   padding-top: 20px;
   padding-bottom: 70px;
 }
 
 .add-book,
+.add-book:hover,
 .add-book:active,
 .add-book:focus {
-  background: #256874;
-  border-radius: 3px;
-  color: #fff;
+  background: #94ebd8;
+  color: #256874;
   margin: 20px 0;
-  padding: 10px;
-}
-
-.add-book:hover {
-  background: #1f5761;
 }
 
 #modal {
@@ -113,88 +124,82 @@ main {
 }
 
 .modal-body input[type=submit],
+.modal-body input[type=submit]:hover,
 .modal-body input[type=submit]:active,
 .modal-body input[type=submit]:focus,
 .modal-body input[type=button],
+.modal-body input[type=button]:hover,
 .modal-body input[type=button]:active,
 .modal-body input[type=button]:focus {
   background: #256874;
-  border-radius: 3px;
-  color: #fff;
+  color: #94ebd8;
   margin-top: 10px;
   margin-left: 5px;
+}
+
+.main-card {
+  background: rgba(0, 0, 0, 0.1);
   padding: 10px;
 }
 
-.modal-body input[type=submit]:hover,
-.modal-body input[type=button]:hover {
-  background-color: #1f5761;
-}
-
-.table {
-  overflow-x: auto;
-}
-
-table {
-  font-size: 0.75rem;
-  width: 100%;
-}
-
-th {
-  background: #256874;
-  color: #fff;
-  letter-spacing: 2px;
-  padding: 10px;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-tbody tr {
+.book-card {
   background: #fff;
-}
-
-tbody tr:nth-child(even) {
-  background: #c5e7ed;
-}
-
-td {
-  line-height: 24px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
   padding: 10px;
-  text-align: center;
 }
 
-td:first-child {
-  text-align: left;
+.book-card:last-child {
+  margin-bottom: 0;
 }
 
-td form {
-  text-align: center;
+.book-card .row:first-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.remove-book,
-.remove-book:active,
-.remove-book:focus {
+.book-card h2 {
   color: #256874;
+  font-size: 1rem;
+  line-height: 24px;
+  width: 85%;
 }
 
-.remove-book:hover {
-  color: #1f5761;
+.delete-book,
+.delete-book:hover,
+.delete-book:active,
+.delete-book:focus {
+  align-self: flex-start;
+  background: #256874;
+  color: #94ebd8;
 }
 
-.fa-times {
+.fa-trash-alt {
   pointer-events: none;
 }
 
+.book-card hr {
+  border: 1px solid #94ebd8;
+  margin: 8px 0;
+}
+
+.book-card .row:last-child .author,
+.book-card .row:last-child .pages {
+  margin: 10px 0;
+}
+
 .no-books {
-  background: rgba(255, 255, 255, 0.5);
+  color: #fff;
   display: none;
   line-height: 20px;
-  padding: 10px 20px;
+  padding: 10px;
   text-align: center;
 }
 
 footer {
-  background: #256874;
+  background: rgba(0, 0, 0, 0.1);
   bottom: 0;
   color: #fff;
   font-size: 0.8rem;
@@ -212,5 +217,5 @@ footer a:visited,
 footer a:hover,
 footer a:active,
 footer a:focus {
-  color: #c5e7ed;
+  color: #94ebd8;
 }
