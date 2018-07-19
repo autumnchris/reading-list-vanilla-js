@@ -36,7 +36,9 @@ function populateReadingList() {
         </button>
       </td>
     </tr>`;
-  }).sort().join('');
+  }).sort((a, b) => {
+    return a.toUpperCase() > b.toUpperCase();
+  }).join('');
 
   function removeBook(event) {
     readingList.splice(event.target.dataset.index, 1);
