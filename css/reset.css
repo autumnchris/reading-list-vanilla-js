@@ -50,6 +50,7 @@ a:visited,
 a:active,
 a:focus {
   color: inherit;
+  letter-spacing: inherit;
   text-decoration: none;
 }
 
@@ -59,6 +60,7 @@ a:hover {
 
 span {
   color: inherit;
+  letter-spacing: inherit;
 }
 
 button,
@@ -83,4 +85,5 @@ input[type=checkbox] {
 cite {
   color: inherit;
   font-style: italic;
+  letter-spacing: inherit;
 }
