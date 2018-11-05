@@ -53,7 +53,10 @@ function populateReadingList() {
 
   document.querySelectorAll('.delete-book').forEach(i => {
     i.addEventListener('click', (event) => {
-      deleteBook(event);
+
+      if (confirm('Are you sure you want to remove this book from your reading list?')) {
+        deleteBook(event);
+      }
     });
   });
 }
