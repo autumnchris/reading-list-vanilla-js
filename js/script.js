@@ -71,13 +71,14 @@ function addNewBook(event) {
     pages: document.getElementById('pages-input').value,
     read: document.getElementById('read-input').checked
   };
+  let newBook;
 
   if (isNaN(form.pages) || form.pages < 0) {
     document.querySelector('.error-message').style.display = 'block';
   }
   else {
     document.querySelector('.error-message').style.display = 'none';
-    const newBook = new Book(form.title, form.author, form.pages, form.read ? true : false);
+    newBook = new Book(form.title, form.author, form.pages, form.read ? true : false);
     readingList.push(newBook);
     populateReadingList();
     localStorage.setItem('readingList', JSON.stringify(readingList));
