@@ -1,11 +1,11 @@
 *:focus {
-  box-shadow: 0 0 3px 3px rgba(65, 180, 250, 0.8);
+  box-shadow: 0 0 3px 3px hsla(203, 95%, 62%, 0.8);
   outline: none;
 }
 
 html {
-  background: #256874;
-  background: linear-gradient(to right, #256874, #2b7a88) fixed;
+  background: hsl(189, 68%, 22%);
+  background: linear-gradient(to right, hsl(189, 68%, 15%), hsl(189, 68%, 30%)) fixed;
 }
 
 button,
@@ -25,7 +25,7 @@ input[type=button]:focus {
 }
 
 h1 {
-  color: #fff;
+  color: hsl(0, 0%, 100%);
   font-family: Allan, "Fira Sans", Helvetica, Arial, sans-serif;
   font-size: 1.8rem;
   letter-spacing: 5px;
@@ -44,13 +44,13 @@ main {
 .add-book:hover,
 .add-book:active,
 .add-book:focus {
-  background: #94ebd8;
-  color: #256874;
+  background: hsl(189, 68%, 82%);
+  color: hsl(189, 68%, 22%);
   margin: 20px 0;
 }
 
 #modal {
-  background: rgba(0, 0, 0, 0.75);
+  background: hsla(0, 0%, 0%, 0.75);
   bottom: 0;
   display: none;
   height: 100%;
@@ -65,7 +65,7 @@ main {
 
 .modal-content {
   animation: slideIn 0.3s ease-out;
-  background: #fff;
+  background: hsl(0, 0%, 100%);
   margin: 10% auto;
   max-width: 400px;
   width: 70%;
@@ -81,12 +81,12 @@ main {
 }
 
 .modal-header {
-  background: #256874;
+  background: hsl(189, 68%, 22%);
   padding: 10px;
 }
 
 .modal-header h2 {
-  color: #fff;
+  color: hsl(0, 0%, 100%);
   font-size: 1.1rem;
   font-weight: 300;
 }
@@ -102,7 +102,7 @@ main {
 }
 
 .modal-body input[type=text] {
-  border: 1px solid #256874;
+  border: 1px solid hsl(189, 68%, 22%);
   padding: 5px;
 }
 
@@ -131,19 +131,19 @@ main {
 .modal-body input[type=button]:hover,
 .modal-body input[type=button]:active,
 .modal-body input[type=button]:focus {
-  background: #256874;
-  color: #94ebd8;
+  background: hsl(189, 68%, 22%);
+  color: hsl(189, 68%, 82%);
   margin-top: 10px;
   margin-left: 5px;
 }
 
 .main-card {
-  background: rgba(0, 0, 0, 0.1);
+  background: hsla(0, 0%, 0%, 0.15);
   padding: 10px;
 }
 
 .book-card {
-  background: #fff;
+  background: hsl(0, 0%, 100%);
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
@@ -161,7 +161,7 @@ main {
 }
 
 .book-card h2 {
-  color: #256874;
+  color: hsl(189, 68%, 22%);
   font-size: 1rem;
   line-height: 24px;
   width: 85%;
@@ -172,8 +172,8 @@ main {
 .delete-book:active,
 .delete-book:focus {
   align-self: flex-start;
-  background: #256874;
-  color: #94ebd8;
+  background: hsl(189, 68%, 22%);
+  color: hsl(189, 68%, 82%);
 }
 
 .fa-trash-alt {
@@ -181,7 +181,7 @@ main {
 }
 
 .book-card hr {
-  border-bottom: 1px solid #256874;
+  border-bottom: 1px solid hsl(189, 68%, 22%);
   margin: 8px 0;
 }
 
@@ -207,8 +207,8 @@ input[type=checkbox] {
 }
 
 .checkmark {
-  background: #fff;
-  border: 1px solid #256874;
+  background: hsl(0, 0%, 100%);
+  border: 1px solid hsl(189, 68%, 22%);
   height: 16px;
   left: 0;
   margin: 5px;
@@ -218,7 +218,7 @@ input[type=checkbox] {
 }
 
 input:checked ~ .checkmark {
-  background: #256874;
+  background: hsl(189, 68%, 22%);
 }
 
 .checkmark:after {
@@ -232,7 +232,7 @@ input:checked ~ .checkmark:after {
 }
 
 .check-label .checkmark:after {
-  border: solid #fff;
+  border: solid hsl(0, 0%, 100%);
   border-width: 0 3px 3px 0;
   height: 6px;
   left: 4px;
@@ -244,7 +244,7 @@ input:checked ~ .checkmark:after {
 }
 
 .no-books {
-  color: #fff;
+  color: hsl(0, 0%, 100%);
   display: none;
   line-height: 20px;
   padding: 10px;
@@ -252,9 +252,9 @@ input:checked ~ .checkmark:after {
 }
 
 footer {
-  background: rgba(0, 0, 0, 0.1);
+  background: hsla(0, 0%, 0%, 0.15);
   bottom: 0;
-  color: #fff;
+  color: hsl(0, 0%, 100%)
   font-size: 0.8rem;
   left: 0;
   letter-spacing: 2px;
@@ -270,5 +270,5 @@ footer a:visited,
 footer a:hover,
 footer a:active,
 footer a:focus {
-  color: #94ebd8;
+  color: hsl(189, 68%, 82%);
 }
