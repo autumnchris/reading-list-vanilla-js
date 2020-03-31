@@ -111,6 +111,8 @@ document.querySelector('.cancel').addEventListener('click', () => {
   document.getElementById('modal').style.display = 'none';
 });
 
+document.querySelector('.current-year').innerHTML = new Date().getFullYear();
+
 window.addEventListener('click', (event) => {
 
   if (event.target.id === 'modal') {
