@@ -6,12 +6,25 @@ My project for the [Library assignment](https://www.theodinproject.com/courses/j
 
 ## Built With
 * JavaScript
-* CSS3
+* [Sass](http://sass-lang.com)
 * HTML5
+* [Webpack](https://webpack.js.org)
 * LocalStorage
+* [Babel](https://babeljs.io)
+* [Normalize.css](https://fonts.google.com)
 * [Google Fonts](https://fonts.google.com)
 * [Font Awesome](https://fontawesome.com)
 
 ## Demo
 
 View project demo at [https://autumnchris.github.io/reading-list-vanilla-js](https://autumnchris.github.io/reading-list-vanilla-js).
+
+## Installation
+
+```
+$ git clone https://github.com/autumnchris/reading-list-vanilla-js.git
+$ cd reading-list-vanilla-js
+$ npm install
+$ npm start
+```
+Go to `http://localhost:8080`.

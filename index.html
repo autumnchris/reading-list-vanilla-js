@@ -5,65 +5,16 @@
     <title>Reading List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Castoro">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allan">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="public/style.css">
   </head>
 
   <body>
-    <!-- HEADER -->
-    <header>
-      <h1>Build Your Reading List</h1>
-    </header>
-    <main>
-      <!-- ADD BOOK BUTTON -->
-      <button type="button" class="add-book"><span class="fas fa-plus"></span> Add Book</button>
-      <!-- ADD BOOK MODAL -->
-      <div id="modal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2>Add New Book</h2>
-          </div>
-          <div class="modal-body">
-            <form class="new-book">
-              <div class="form-group">
-                <label for="title-input">Title:</label>
-                <input type="text" name="title-input" id="title-input" required>
-              </div>
-              <div class="form-group">
-                <label for="author-input">Author:</label>
-                <input type="text" name="author-input" id="author-input" required>
-              </div>
-              <div class="form-group">
-                <label for="pages-input">Number of Pages:</label>
-                <input type="text" name="pages-input" id="pages-input" required>
-              </div>
-              <div class="form-group">
-                <label class="check-label" for="read-input">Read
-                  <input type="checkbox" name="read-input" tabindex="-1" id="read-input">
-                  <span class="checkmark" tabindex="0"></span>
-                </label>
-              </div>
-              <!-- MODAL ERROR MESSAGE -->
-              <p class="message error-message"><span class="fa fa-exclamation-circle fa-lg fa-fw"></span> Number of Pages must be a positive integer.</p>
-              <div class="button-group">
-                <input type="submit" value="Add">
-                <input type="button" class="cancel" value="Cancel">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="main-card">
-        <!-- READING LIST -->
-        <div class="reading-list"></div>
-        <!-- NO BOOKS MESSAGE -->
-        <p class="no-books">You currently have no books in your reading list. Click Add Book to get started.</p>
-      </div>
-    </main>
-    <!-- FOOTER -->
-    <footer>Created by <a href="https://autumnbullard-portfolio.herokuapp.com" target="_blank">Autumn Bullard</a> &copy; <span class="current-year"></span></footer>
-    <script src="js/script.js"></script>
+    <div id="app"></div>
+    <script src="public/bundle.js"></script>
+    <noscript>
+      <p class="message info-message"><span class="fa fa-info-circle fa-lg fa-fw"></span> This site uses JavaScript. Please enable JavaScript in your browser.</p>
+    </noscript>
   </body>
 </html>

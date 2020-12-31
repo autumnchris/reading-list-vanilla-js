@@ -1,0 +1,394 @@
+@import "variables";
+
+// BASE PAGE STYLES
+
+html {
+  background: transparent;
+  box-sizing: border-box;
+  color: change-color($black, $lightness: 20%);
+  font-family: $main-font;
+  height: 100%;
+  letter-spacing: 1px;
+  body {
+    background: change-color($teal, $lightness: 82%);
+    min-height: 100%;
+    overscroll-behavior: none;
+    padding: 0;
+    position: relative;
+    header {
+      height: 250px;
+      position: relative;
+    }
+    main {
+      padding: 30px 20px 6rem;
+    }
+    footer {
+      background: change-color($black, $lightness: 34%);
+      bottom: 0;
+      color: change-color($black, $lightness: 100%);
+      font-size: 0.8rem;
+      left: 0;
+      letter-spacing: 2px;
+      padding: 14px 0;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      width: 100%;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      box-sizing: border-box;
+      margin-top: 0;
+    }
+  }
+}
+
+// BASE ELEMENT STYLES
+
+div,
+header,
+main,
+footer,
+p,
+form,
+label,
+input,
+button,
+button:hover,
+button:active,
+button:focus {
+  box-sizing: border-box;
+}
+
+button,
+button:hover,
+button:active,
+button:focus,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+}
+
+input {
+  border: 1px solid $teal;
+  border-radius: 0;
+  color: change-color($black, $lightness: 20%);
+  letter-spacing: 1px;
+  line-height: 1.3;
+  padding: 6px;
+  width: 100%;
+  &::placeholder {
+    color: change-color($black, $lightness: 60%);
+  }
+}
+
+a,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  color: $teal;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+a:focus,
+button:focus,
+details:focus,
+input:focus,
+select:focus,
+textarea:focus,
+[tabindex]:focus {
+  box-shadow: 0 0 3px 3px hsla(203, 95%, 62%, 0.8);
+  outline: none;
+}
+
+.button,
+.button:visited,
+.button:hover,
+.button:active,
+.button:focus {
+  background: $teal;
+  border: 0;
+  border-radius: 3px;
+  color: change-color($teal, $lightness: 82%);
+  cursor: pointer;
+  letter-spacing: 1px;
+  line-height: normal;
+  padding: 5px 8px;
+  width: auto;
+  &:hover {
+    background: change-color($teal, $lightness: 18%);
+    text-decoration: none;
+  }
+}
+
+.button-group {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.message {
+  border-radius: 5px;
+  line-height: 1.55;
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 15px 10px;
+  text-align: center;
+}
+
+.check-label {
+  cursor: pointer;
+  margin-bottom: 6px;
+  padding: 5px 5px 5px 25px;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: fit-content;
+  input[type=checkbox] {
+    opacity: 0;
+    position: absolute;
+    width: 0;
+  }
+  .checkmark {
+    background: change-color($black, $lightness: 100%);
+    border: 1px solid $teal;
+    height: 16px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 16px;
+    &:after {
+      border: solid change-color($black, $lightness: 100%);
+      border-width: 0 2px 2px 0;
+      content: "";
+      display: none;
+      height: 8px;
+      left: 5px;
+      position: absolute;
+      top: 1px;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      width: 4px;
+    }
+  }
+  input:checked ~ .checkmark {
+    background: $teal;
+    &:after {
+      display: block;
+    }
+  }
+}
+
+// SPECIFIC ELEMENT STYLES
+
+.bg-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: 0;
+  -webkit-filter: brightness(40%);
+  filter: brightness(40%);
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+h1 {
+  color: change-color($teal, $lightness: 82%);
+  font-size: 1.8rem;
+  letter-spacing: 4px;
+  padding: 30px;
+  position: absolute;
+  text-shadow: 1px 1px 0 change-color($black, $lightness: 20%);
+  top: 0;
+  left: 0;
+}
+
+.modal {
+    background: rgba($black, 0.75);
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  .modal-content {
+    animation: slideIn 0.3s ease-out;
+    background: change-color($black, $lightness: 100%);
+    margin: 10% auto;
+    max-width: 300px;
+    width: 80%;
+    .modal-header {
+      background: change-color($black, $lightness: 34%);
+      color: change-color($black, $lightness: 100%);
+      padding: 10px;
+    }
+    .modal-body {
+      padding: 15px;
+      .form-group {
+        margin-bottom: 22px;
+        max-width: 200px;
+        label {
+          color: change-color($black, $lightness: 34%);
+          display: block;
+          font-size: 0.7rem;
+          margin-bottom: 5px;
+          text-transform: uppercase;
+        }
+        .pages-value {
+          max-width: 80px;
+        }
+      }
+      .button-group {
+        -webkit-box-pack: end;
+        -moz-box-pack: end;
+        -ms-flex-pack: end;
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end;
+        .modal-button,
+        .modal-button:hover,
+        .modal-button:active,
+        .modal-button:focus {
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+}
+
+.sidebar {
+  float: left;
+  padding-left: 30px;
+  @media only screen and (max-width: 950px) {
+    float: none;
+    padding-bottom: 20px;
+    padding-left: 0;
+  }
+  .add-book-button,
+  .add-book-button:hover,
+  .add-book-button:active,
+  .add-book-button:focus {
+    border-radius: 4px;
+    padding: 15px;
+  }
+}
+.reading-list-content {
+  margin: 0 auto;
+  max-width: 550px;
+  @media only screen and (max-width: 950px) {
+    margin: 0;
+  }
+  .book-card {
+    background: change-color($black, $lightness: 100%);
+    border: 1px solid change-color($black, $lightness: 34%);
+    margin-bottom: 10px;
+    padding: 10px;
+    .row:first-child {
+      border-bottom: 1px solid change-color($black, $lightness: 34%);
+      display: -webkit-box;
+      display: -moz-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      .title {
+        color: $teal;
+        font-family: $title-font;
+        font-size: 1.2rem;
+        font-style: italic;
+        font-weight: 800;
+        letter-spacing: 2px;
+        padding: 5px;
+      }
+      .delete-book-button,
+      .delete-book-button:hover,
+      .delete-book-button:active,
+      .delete-book-button:focus {
+        height: 30px;
+        padding: 0;
+        width: 30px;
+        .delete-icon {
+          pointer-events: none;
+        }
+      }
+    }
+    .row:last-child {
+      padding-top: 10px;
+      .book-info {
+        padding-bottom: 10px;
+      }
+      .book-info-label,
+      .check-label {
+        color: change-color($black, $lightness: 34%);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+footer {
+  a,
+  a:visited,
+  a:hover,
+  a:active,
+  a:focus {
+    color: change-color($teal, $lightness: 82%);
+  }
+}
+
+.error-message {
+  background: change-color($error-red, $lightness: 95%);
+  border: 1px solid change-color($error-red, $lightness: 90%);
+  color: $error-red;
+}
+
+.info-message {
+  background: change-color($info-blue, $lightness: 95%);
+  border: 1px solid change-color($info-blue, $lightness: 90%);
+  color: $info-blue;
+}
+
+noscript .info-message {
+  left: 50%;
+  margin: 0 auto;
+  min-width: 280px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes slideIn {
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: 10%;
+  }
+}
