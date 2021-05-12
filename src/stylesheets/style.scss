@@ -4,6 +4,7 @@
 
 html {
   background: transparent;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   color: change-color($black, $lightness: 20%);
   font-family: $main-font;
@@ -12,6 +13,7 @@ html {
   body {
     background: change-color($teal, $lightness: 82%);
     min-height: 100%;
+    -ms-scroll-chaining: none;
     overscroll-behavior: none;
     padding: 0;
     position: relative;
@@ -41,6 +43,7 @@ html {
     h4,
     h5,
     h6 {
+      -webkit-box-sizing: border-box;
       box-sizing: border-box;
       margin-top: 0;
     }
@@ -61,6 +64,7 @@ button,
 button:hover,
 button:active,
 button:focus {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -83,6 +87,18 @@ input {
   line-height: 1.3;
   padding: 6px;
   width: 100%;
+  &::-webkit-input-placeholder {
+    color: change-color($black, $lightness: 60%);
+  }
+  &::-moz-placeholder {
+    color: change-color($black, $lightness: 60%);
+  }
+  &:-ms-input-placeholder {
+    color: change-color($black, $lightness: 60%);
+  }
+  &::-ms-input-placeholder {
+    color: change-color($black, $lightness: 60%);
+  }
   &::placeholder {
     color: change-color($black, $lightness: 60%);
   }
@@ -107,6 +123,7 @@ input:focus,
 select:focus,
 textarea:focus,
 [tabindex]:focus {
+  -webkit-box-shadow: 0 0 3px 3px hsla(203, 95%, 62%, 0.8);
   box-shadow: 0 0 3px 3px hsla(203, 95%, 62%, 0.8);
   outline: none;
 }
@@ -133,8 +150,6 @@ textarea:focus,
 
 .button-group {
   display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
@@ -157,6 +172,8 @@ textarea:focus,
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   input[type=checkbox] {
     opacity: 0;
@@ -181,7 +198,6 @@ textarea:focus,
       position: absolute;
       top: 1px;
       -webkit-transform: rotate(45deg);
-      -moz-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
       width: 4px;
@@ -233,6 +249,7 @@ h1 {
     width: 100%;
     z-index: 1;
   .modal-content {
+    -webkit-animation: slideIn 0.3s ease-out;
     animation: slideIn 0.3s ease-out;
     background: change-color($black, $lightness: 100%);
     margin: 10% auto;
@@ -261,9 +278,7 @@ h1 {
       }
       .button-group {
         -webkit-box-pack: end;
-        -moz-box-pack: end;
         -ms-flex-pack: end;
-        -webkit-justify-content: flex-end;
         justify-content: flex-end;
         .modal-button,
         .modal-button:hover,
@@ -303,14 +318,10 @@ h1 {
     .row:first-child {
       border-bottom: 1px solid change-color($black, $lightness: 34%);
       display: -webkit-box;
-      display: -moz-box;
-      display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
       -webkit-box-pack: justify;
-      -moz-box-pack: justify;
       -ms-flex-pack: justify;
-      -webkit-justify-content: space-between;
       justify-content: space-between;
       padding-bottom: 10px;
       .title {
@@ -378,7 +389,18 @@ noscript .info-message {
   position: absolute;
   text-align: center;
   top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+@-webkit-keyframes slideIn {
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: 10%;
+  }
 }
 
 @keyframes slideIn {
