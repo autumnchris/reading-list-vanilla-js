@@ -19,12 +19,21 @@ My project for the [Library assignment](https://www.theodinproject.com/courses/j
 
 View project demo at [https://autumnchris.github.io/reading-list-vanilla-js](https://autumnchris.github.io/reading-list-vanilla-js).
 
-## Installation
+## Instructions
 
+After forking and cloning, navigate to the repository in your command line and install the NPM packages:
 ```
-$ git clone https://github.com/autumnchris/reading-list-vanilla-js.git
-$ cd reading-list-vanilla-js
-$ npm install
-$ npm start
+npm install
 ```
-Go to `http://localhost:8080`.
+
+Run the following script in your command line to run the application:
+```
+npm start
+```
+
+Once the server is running, go to `http://localhost:8080` in your browser.
+
+Before committing any changes, run the following script to update your static files for production:
+```
+npm run build
+```
