@@ -1,6 +1,8 @@
 # Reading List (vanilla JS)
 
-My project for the [Library assignment](https://www.theodinproject.com/courses/javascript/lessons/library) as part of the curriculum for the [JavaScript course](https://www.theodinproject.com/courses/javascript) on [The Odin Project](https://www.theodinproject.com). Built with vanilla JS.
+A front-end web app that uses LocalStorage to store and present entered data for the user's personal reading list. Built with vanilla JS.
+
+Inspired by the [Library assignment](https://www.theodinproject.com/courses/javascript/lessons/library) as part of the curriculum for the [JavaScript course](https://www.theodinproject.com/courses/javascript) on [The Odin Project](https://www.theodinproject.com).
 
 ---
 

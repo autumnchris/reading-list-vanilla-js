@@ -1,8 +1,7 @@
 {
   "name": "reading-list-vanilla-js",
   "version": "1.0.0",
-  "description": "My project for the Library assignment as part of the curriculum for the JavaScript course. Built with vanilla JS.",
-  "main": "index.js",
+  "description": "A front-end web app that uses LocalStorage to store and present entered data for the user's personal reading list. Built with vanilla JS.",
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack serve --mode development"
