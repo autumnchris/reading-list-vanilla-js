@@ -27,13 +27,13 @@ const BookFormModal = (() => {
     removeFormErrorMessage();
     let newBook = new Book(titleValue, authorValue, pagesValue, readValue);
 
-    if (!titleValue) {
+    if (!titleValue.trim()) {
       renderFormErrorMessage('A book title is required to add a new book.');
     }
-    else if (!authorValue) {
+    else if (!authorValue.trim()) {
       renderFormErrorMessage('An author is required to add a new book.');
     }
-    else if (!pagesValue) {
+    else if (!pagesValue.trim()) {
       renderFormErrorMessage('The number of pages is required to add a new book.');
     }
     else if (isNaN(pagesValue) || pagesValue < 0) {
@@ -60,18 +60,18 @@ const BookFormModal = (() => {
     bookFormModal.innerHTML = `<div class="modal-content">
       <div class="modal-header">Add New Book</div>
       <div class="modal-body">
-        <form class="new-book-form">
+        <form class="new-book-form" novalidate>
           <div class="form-group">
             <label for="title-value">Title</label>
-            <input type="text" class="title-value" name="titleValue" value="${formInputValues.titleValue}" id="title-value" required />
+            <input type="text" class="title-value" name="titleValue" value="${formInputValues.titleValue}" id="title-value" />
           </div>
           <div class="form-group">
             <label for="author-value">Author</label>
-            <input type="text" class="author-value" name="authorValue" value="${formInputValues.authorValue}" id="author-value" required />
+            <input type="text" class="author-value" name="authorValue" value="${formInputValues.authorValue}" id="author-value" />
           </div>
           <div class="form-group">
             <label for="pages-value">Number of Pages</label>
-            <input type="text" class="pages-value" name="pagesValue" value="${formInputValues.pagesValue}" id="pages-value" required />
+            <input type="text" class="pages-value" name="pagesValue" value="${formInputValues.pagesValue}" id="pages-value" />
           </div>
           <div class="form-group">
               <label class="check-label" for="read-value">Read
