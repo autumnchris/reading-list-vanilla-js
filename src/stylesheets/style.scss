@@ -18,6 +18,7 @@ html {
     padding: 0;
     position: relative;
     header {
+      background: change-color($black, $lightness: 34%);
       height: 250px;
       position: relative;
     }
