@@ -36,7 +36,7 @@ const BookFormModal = (() => {
     else if (!pagesValue.trim()) {
       renderFormErrorMessage('The number of pages is required to add a new book.');
     }
-    else if (isNaN(pagesValue) || pagesValue < 0) {
+    else if (isNaN(pagesValue) || pagesValue <= 0) {
       renderFormErrorMessage('The number of pages must be a number greater than 0.');
     }
     else {
