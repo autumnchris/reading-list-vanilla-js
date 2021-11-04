@@ -18,7 +18,7 @@ const App = (() => {
         <div class="col reading-list-content"></div>
       </div>
     </main>
-    <footer>Created by <a href="https://autumnbullard-portfolio.herokuapp.com" target="_blank">Autumn Bullard</a> &copy; ${new Date().getFullYear()}</footer>`;
+    <footer>Created by <a href="https://autumnchris.github.io/portfolio" target="_blank">Autumn Bullard</a> &copy; ${new Date().getFullYear()}</footer>`;
 
     ReadingList.renderReadingListContent(ReadingList.renderReadingListArray());
 
@@ -32,7 +32,7 @@ const App = (() => {
       element.matches('.book-card input[type=checkbox]') ? ReadingList.toggleRead(event, ReadingList.renderReadingListArray()) : null;
     });
 
-    document.addEventListener('keyup', () => {
+    document.addEventListener('keyup', event => {
        const element = event.target;
        element.matches('.new-book-form .form-group input[type=text]') ? BookFormModal.handleChange(event) : null;
     });
