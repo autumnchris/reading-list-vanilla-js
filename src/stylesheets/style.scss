@@ -395,6 +395,15 @@ noscript .info-message {
   transform: translate(-50%, -50%);
 }
 
+.page-not-found-message {
+  text-align: center;
+  h1 {
+    color: $teal;
+    position: relative;
+    text-shadow: none;
+  }
+}
+
 @-webkit-keyframes slideIn {
   from {
     margin-top: 0;
