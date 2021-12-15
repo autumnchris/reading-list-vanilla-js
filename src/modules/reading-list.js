@@ -30,7 +30,7 @@ const ReadingList = (() => {
               <div class="form-group">
                 <label class="check-label" for="read-${index}">Read
                   <input type="checkbox" data-index="${index}" name="readValue" tabindex="-1" id="read-${index}" ${book.readValue ? 'checked' : ''} />
-                  <span class="checkmark" tabindex="0"></span>
+                  <span class="checkmark" tabindex="0" data-index="${index}"></span>
                 </label>
               </div>
             </form>
@@ -49,10 +49,17 @@ const ReadingList = (() => {
   }
 
   function toggleRead(event, readingList) {
+    if (event.type === 'click' && !event.target.matches('input[type=checkbox]')) return;
 
-    if (!event.target.matches('input[type=checkbox]')) return;
-    readingList[event.target.dataset.index].readValue = !readingList[event.target.dataset.index].readValue;
-    renderReadingListArray(readingList);
+    if (event.keyCode === 32) {
+      event.preventDefault();
+      document.getElementById(`read-${event.target.dataset.index}`).checked = !document.getElementById(`read-${event.target.dataset.index}`).checked;
+    }
+
+    if (event.keyCode === 32 || event.type === 'click') {
+      readingList[event.target.dataset.index].readValue = !readingList[event.target.dataset.index].readValue;
+      localStorage.setItem('readingList', JSON.stringify(readingList));
+    }
   }
 
   return {

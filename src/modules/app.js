@@ -37,6 +37,12 @@ const App = (() => {
        element.matches('.new-book-form .form-group input[type=text]') ? BookFormModal.handleChange(event) : null;
     });
 
+    document.addEventListener('keydown', event => {
+      const element = event.target;
+      element.matches('.new-book-form .form-group .checkmark') ? BookFormModal.handleKeyDown(event) : null;
+      element.matches('.book-card .checkmark') ? ReadingList.toggleRead(event, ReadingList.renderReadingListArray()) : null;
+    });
+
     document.addEventListener('submit', event => {
       const element = event.target;
       element.matches('.new-book-form') ? BookFormModal.addNewBook(event, document.getElementById('title-value').value, document.getElementById('author-value').value, document.getElementById('pages-value').value, document.getElementById('read-value').checked, ReadingList.renderReadingListArray()) : null;

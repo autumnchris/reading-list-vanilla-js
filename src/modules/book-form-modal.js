@@ -22,6 +22,15 @@ const BookFormModal = (() => {
     formInputValues[event.target.name] = value;
   }
 
+  function handleKeyDown(event) {
+
+    if (event.keyCode === 32) {
+      event.preventDefault();
+      document.getElementById(event.target.dataset.inputId).checked = !document.getElementById(event.target.dataset.inputId).checked;
+      formInputValues.readValue = document.getElementById(event.target.dataset.inputId).checked;
+    }
+  }
+
   function addNewBook(event, titleValue, authorValue, pagesValue, readValue, readingList) {
     event.preventDefault();
     removeFormErrorMessage();
@@ -76,7 +85,7 @@ const BookFormModal = (() => {
           <div class="form-group">
               <label class="check-label" for="read-value">Read
                 <input type="checkbox" name="readValue" tabindex="-1" id="read-value" ${formInputValues.readValue ? 'checked' : ''} />
-                <span class="checkmark" tabindex="0"></span>
+                <span class="checkmark" tabindex="0" data-input-id="read-value"></span>
               </label>
             </div>
           <div class="button-group">
@@ -110,6 +119,7 @@ const BookFormModal = (() => {
 
   return {
     handleChange,
+    handleKeyDown,
     addNewBook,
     openBookFormModal,
     closeBookFormModal
