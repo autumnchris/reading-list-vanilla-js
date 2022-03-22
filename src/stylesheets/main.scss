@@ -1,0 +1,113 @@
+// STYLES FOR PAGE'S MAIN CONTENT
+
+.bg-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: 0;
+  -webkit-filter: brightness(40%);
+  filter: brightness(40%);
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+// Button styles
+.button-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.button,
+.button:visited,
+.button:hover,
+.button:active,
+.button:focus {
+  background: $teal;
+  border: 0;
+  border-radius: 3px;
+  color: change-color($teal, $lightness: 82%);
+  cursor: pointer;
+  letter-spacing: 1px;
+  line-height: normal;
+  padding: 5px 8px;
+  width: auto;
+  &:hover {
+    background: change-color($teal, $lightness: 18%);
+    text-decoration: none;
+  }
+}
+
+// Sidebar styles
+.sidebar {
+  padding-bottom: 20px;
+  @media all and (min-width: 950px) {
+    float: left;
+    padding-left: 30px;
+  }
+  .add-book-button,
+  .add-book-button:hover,
+  .add-book-button:active,
+  .add-book-button:focus {
+    border-radius: 4px;
+    padding: 15px;
+  }
+}
+
+// Reading list styles
+.reading-list-content {
+  max-width: 550px;
+  @media all and (min-width: 950px) {
+    margin: 0 auto;
+  }
+  .book-card {
+    background: change-color($black, $lightness: 100%);
+    border: 1px solid change-color($black, $lightness: 34%);
+    margin-bottom: 10px;
+    padding: 10px;
+    .row:first-child {
+      border-bottom: 1px solid change-color($black, $lightness: 34%);
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      .title {
+        color: $teal;
+        font-family: $title-font;
+        font-size: 1.2rem;
+        font-style: italic;
+        font-weight: 800;
+        letter-spacing: 2px;
+        padding: 5px;
+      }
+      .delete-book-button,
+      .delete-book-button:hover,
+      .delete-book-button:active,
+      .delete-book-button:focus {
+        height: 30px;
+        padding: 0;
+        width: 30px;
+        .delete-icon {
+          pointer-events: none;
+        }
+      }
+    }
+    .row:last-child {
+      padding-top: 10px;
+      .book-info {
+        padding-bottom: 10px;
+      }
+      .book-info-label,
+      .check-label {
+        color: change-color($black, $lightness: 34%);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

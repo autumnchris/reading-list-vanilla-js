@@ -1,0 +1,148 @@
+// STYLES FOR FORMS
+
+input {
+  border: 1px solid $teal;
+  border-radius: 0;
+  color: change-color($black, $lightness: 20%);
+  letter-spacing: 1px;
+  line-height: 1.3;
+  padding: 6px;
+  width: 100%;
+  &::-webkit-input-placeholder {
+    color: change-color($black, $lightness: 60%);
+  }
+  &::-moz-placeholder {
+    color: change-color($black, $lightness: 60%);
+  }
+  &:-ms-input-placeholder {
+    color: change-color($black, $lightness: 60%);
+  }
+  &::-ms-input-placeholder {
+    color: change-color($black, $lightness: 60%);
+  }
+  &::placeholder {
+    color: change-color($black, $lightness: 60%);
+  }
+}
+
+// Checkbox styles
+.check-label {
+  cursor: pointer;
+  margin-bottom: 6px;
+  padding: 5px 5px 5px 25px;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  input[type=checkbox] {
+    opacity: 0;
+    position: absolute;
+    width: 0;
+  }
+  .checkmark {
+    background: change-color($black, $lightness: 100%);
+    border: 1px solid $teal;
+    height: 16px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 16px;
+    &:after {
+      border: solid change-color($black, $lightness: 100%);
+      border-width: 0 2px 2px 0;
+      content: "";
+      display: none;
+      height: 8px;
+      left: 5px;
+      position: absolute;
+      top: 1px;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      width: 4px;
+    }
+  }
+  input:checked ~ .checkmark {
+    background: $teal;
+    &:after {
+      display: block;
+    }
+  }
+}
+
+// Modal styles
+.modal {
+  background: rgba($black, 0.75);
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  .modal-content {
+    -webkit-animation: slideIn 0.3s ease-out;
+    animation: slideIn 0.3s ease-out;
+    background: change-color($black, $lightness: 100%);
+    margin: 10% auto;
+    max-width: 300px;
+    width: 80%;
+    .modal-header {
+      background: change-color($black, $lightness: 34%);
+      color: change-color($black, $lightness: 100%);
+      padding: 10px;
+    }
+    .modal-body {
+      padding: 15px;
+      .form-group {
+        margin-bottom: 22px;
+        max-width: 200px;
+        label {
+          color: change-color($black, $lightness: 34%);
+          display: block;
+          font-size: 0.7rem;
+          margin-bottom: 5px;
+          text-transform: uppercase;
+        }
+        .pages-value {
+          max-width: 80px;
+        }
+      }
+      .button-group {
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        .modal-button,
+        .modal-button:hover,
+        .modal-button:active,
+        .modal-button:focus {
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+}
+
+@-webkit-keyframes slideIn {
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: 10%;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: 10%;
+  }
+}
