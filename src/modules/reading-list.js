@@ -24,8 +24,8 @@ const ReadingList = (() => {
             </button>
           </div>
           <div class="row">
-            <div class="book-info author"><span class="book-info-label">by</span> ${book.authorValue}</div>
-            <div class="book-info pages"><span class="book-info-label">Pages</span> ${book.pagesValue}</div>
+            <div class="book-info author"><span class="book-info-label">by </span>${book.authorValue}</div>
+            <div class="book-info pages"><span class="book-info-label">Pages </span>${book.pagesValue}</div>
             <form novalidate>
               <div class="form-group">
                 <label class="check-label" for="read-${index}">Read

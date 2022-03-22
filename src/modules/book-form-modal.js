@@ -34,15 +34,19 @@ const BookFormModal = (() => {
   function addNewBook(event, titleValue, authorValue, pagesValue, readValue, readingList) {
     event.preventDefault();
     removeFormErrorMessage();
-    let newBook = new Book(titleValue, authorValue, pagesValue, readValue);
+    titleValue = titleValue.trim();
+    authorValue = authorValue.trim();
+    pagesValue = pagesValue.trim();
+    const newBook = new Book(titleValue, authorValue, pagesValue, readValue);
+    console.log({ authorValue });
 
-    if (!titleValue.trim()) {
+    if (!titleValue) {
       renderFormErrorMessage('A book title is required to add a new book.');
     }
-    else if (!authorValue.trim()) {
+    else if (!authorValue) {
       renderFormErrorMessage('An author is required to add a new book.');
     }
-    else if (!pagesValue.trim()) {
+    else if (!pagesValue) {
       renderFormErrorMessage('The number of pages is required to add a new book.');
     }
     else if (isNaN(pagesValue) || pagesValue <= 0) {
@@ -72,15 +76,15 @@ const BookFormModal = (() => {
         <form class="new-book-form" novalidate>
           <div class="form-group">
             <label for="title-value">Title</label>
-            <input type="text" class="title-value" name="titleValue" value="${formInputValues.titleValue}" id="title-value" />
+            <input type="text" class="title-value" name="titleValue" value="${formInputValues.titleValue}" id="title-value" required />
           </div>
           <div class="form-group">
             <label for="author-value">Author</label>
-            <input type="text" class="author-value" name="authorValue" value="${formInputValues.authorValue}" id="author-value" />
+            <input type="text" class="author-value" name="authorValue" value="${formInputValues.authorValue}" id="author-value" required />
           </div>
           <div class="form-group">
             <label for="pages-value">Number of Pages</label>
-            <input type="text" class="pages-value" name="pagesValue" value="${formInputValues.pagesValue}" id="pages-value" />
+            <input type="text" class="pages-value" name="pagesValue" inputmode="numeric" value="${formInputValues.pagesValue}" id="pages-value" required />
           </div>
           <div class="form-group">
               <label class="check-label" for="read-value">Read
@@ -89,8 +93,8 @@ const BookFormModal = (() => {
               </label>
             </div>
           <div class="button-group">
-            <input type="submit" class="button modal-button" value="Add" />
-            <input type="button" class="button modal-button cancel" value="Cancel" />
+            <button type="submit" class="button modal-button">Add</button>
+            <button type="button" class="button modal-button cancel">Cancel</button>
           </div>
         </form>
       </div>
