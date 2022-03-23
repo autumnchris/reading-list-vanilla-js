@@ -46,11 +46,11 @@ input {
   .checkmark {
     background: change-color($black, $lightness: 100%);
     border: 1px solid $teal;
-    height: 16px;
+    height: 18px;
     left: 0;
     position: absolute;
     top: 0;
-    width: 16px;
+    width: 18px;
     &:after {
       border: solid change-color($black, $lightness: 100%);
       border-width: 0 2px 2px 0;
