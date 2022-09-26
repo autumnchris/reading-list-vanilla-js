@@ -38,7 +38,6 @@ const BookFormModal = (() => {
     authorValue = authorValue.trim();
     pagesValue = pagesValue.trim();
     const newBook = new Book(titleValue, authorValue, pagesValue, readValue);
-    console.log({ authorValue });
 
     if (!titleValue) {
       renderFormErrorMessage('A book title is required to add a new book.');
