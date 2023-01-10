@@ -51,12 +51,12 @@ const ReadingList = (() => {
   function toggleRead(event, readingList) {
     if (event.type === 'click' && !event.target.matches('input[type=checkbox]')) return;
 
-    if (event.keyCode === 32) {
+    if (event.keyCode === 13) {
       event.preventDefault();
       document.getElementById(`read-${event.target.dataset.index}`).checked = !document.getElementById(`read-${event.target.dataset.index}`).checked;
     }
 
-    if (event.keyCode === 32 || event.type === 'click') {
+    if (event.keyCode === 13 || event.type === 'click') {
       readingList[event.target.dataset.index].readValue = !readingList[event.target.dataset.index].readValue;
       localStorage.setItem('readingList', JSON.stringify(readingList));
     }

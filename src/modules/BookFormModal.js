@@ -24,7 +24,7 @@ const BookFormModal = (() => {
 
   function handleKeyDown(event) {
 
-    if (event.keyCode === 32) {
+    if (event.keyCode === 13) {
       event.preventDefault();
       document.getElementById(event.target.dataset.inputId).checked = !document.getElementById(event.target.dataset.inputId).checked;
       formInputValues.readValue = document.getElementById(event.target.dataset.inputId).checked;
