@@ -1,4 +1,4 @@
-import { ReadingList } from './reading-list';
+import { ReadingList } from './ReadingList';
 
 const BookFormModal = (() => {
   let formInputValues = {

@@ -1,6 +1,6 @@
 import bgImage from '.././images/background-image.jpg';
-import { BookFormModal } from './book-form-modal';
-import { ReadingList } from './reading-list';
+import { BookFormModal } from './BookFormModal';
+import { ReadingList } from './ReadingList';
 
 const App = (() => {
 
