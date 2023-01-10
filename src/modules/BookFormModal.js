@@ -100,11 +100,13 @@ const BookFormModal = (() => {
     </div>`;
 
     document.querySelector('main').appendChild(bookFormModal);
+    document.querySelector('body').classList.add('modal-open');
   }
 
   function closeBookFormModal() {
     const bookFormModal = document.getElementById('modal');
     bookFormModal ? document.querySelector('main').removeChild(bookFormModal) : null;
+    document.querySelector('body').classList.remove('modal-open');
   }
 
   function renderFormErrorMessage(messageText) {
