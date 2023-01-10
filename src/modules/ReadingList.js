@@ -12,7 +12,7 @@ const ReadingList = (() => {
   function renderReadingListContent(readingList) {
 
     if (readingList.length === 0) {
-      document.querySelector('.reading-list-content').innerHTML = `<p class="message info-message"><span class="fa fa-info-circle fa-lg fa-fw"></span> You currently have no books in your reading list. Click the Add Book button to get started.</p>`;
+      document.querySelector('.reading-list-content').innerHTML = `<p class="message info-message"><span class="fa fa-info-circle fa-lg fa-fw" aria-hidden="true"></span> You currently have no books in your reading list. Click the Add Book button to get started.</p>`;
     }
     else {
       document.querySelector('.reading-list-content').innerHTML = readingList.sort((a, b) => a.titleValue.toLowerCase().localeCompare(b.titleValue.toLowerCase())).map((book, index) => {
