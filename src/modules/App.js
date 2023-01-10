@@ -13,7 +13,7 @@ const App = (() => {
     <main>
       <div class="reading-list-container">
         <div class="col sidebar">
-          <button type="button" class="button add-book-button"><span class="fas fa-plus"></span> Add Book</button>
+          <button type="button" class="button add-book-button"><span class="fas fa-plus" aria-hidden="true"></span> Add Book</button>
         </div>
         <div class="col reading-list-content"></div>
       </div>
