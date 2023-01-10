@@ -32,7 +32,7 @@ const App = (() => {
       element.matches('.book-card input[type=checkbox]') ? ReadingList.toggleRead(event, ReadingList.renderReadingListArray()) : null;
     });
 
-    document.addEventListener('keyup', event => {
+    document.addEventListener('change', event => {
        const element = event.target;
        element.matches('.new-book-form .form-group input[type=text]') ? BookFormModal.handleChange(event) : null;
     });
