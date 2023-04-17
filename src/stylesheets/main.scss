@@ -13,6 +13,31 @@
   top: 0;
 }
 
+.reading-list-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  @media all and (min-width: 950px) {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+  
 // Button styles
 .button-group {
   display: -webkit-box;
@@ -28,7 +53,7 @@
   background: $teal;
   border: 0;
   border-radius: 3px;
-  color: change-color($teal, $lightness: 82%);
+  color: change-color($black, $lightness: 100%);
   cursor: pointer;
   letter-spacing: 1px;
   line-height: normal;
@@ -42,25 +67,65 @@
 
 // Sidebar styles
 .sidebar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 550px;
   padding-bottom: 20px;
+  width: 100%;
   @media all and (min-width: 950px) {
-    float: left;
-    padding-left: 30px;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-right: 20px;
+    padding-bottom: 0;
+    width: 20%;
   }
-  .add-book-button,
-  .add-book-button:hover,
-  .add-book-button:active,
-  .add-book-button:focus {
-    border-radius: 4px;
-    padding: 15px;
+  .button-group {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    .add-book-button,
+    .add-book-button:hover,
+    .add-book-button:active,
+    .add-book-button:focus {
+      border-radius: 4px;
+      padding: 15px;
+    }
+  }
+  .reading-list-stats {
+    background: change-color($black, $lightness: 34%);
+    color: change-color($black, $lightness: 100%);
+    margin-left: 15px;
+    max-width: 185px;
+    padding: 10px;
+    width: 100%;
+    @media all and (min-width: 950px) {
+      margin-top: 15px;
+      margin-left: 0;
+    }
+    .stat {
+      font-size: 1.3rem;
+      line-height: 1.4;
+      .stat-label {
+        color: change-color($teal, $lightness: 82%);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+      }
+    }
   }
 }
 
 // Reading list styles
 .reading-list-content {
   max-width: 550px;
+  width: 100%;
   @media all and (min-width: 950px) {
-    margin: 0 auto;
+    width: 80%;
   }
   .book-card {
     background: change-color($black, $lightness: 100%);

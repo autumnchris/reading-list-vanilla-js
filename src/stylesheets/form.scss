@@ -1,6 +1,7 @@
 // STYLES FOR FORMS
 
-input {
+input,
+select {
   border: 1px solid $teal;
   border-radius: 0;
   color: change-color($black, $lightness: 20%);
@@ -22,6 +23,41 @@ input {
   }
   &::placeholder {
     color: change-color($black, $lightness: 60%);
+  }
+}
+
+// Select element styles
+.select-wrapper {
+  background: change-color($teal, $lightness: 82%);
+  border-radius: 3px;
+  color: change-color($teal, $lightness: 18%);
+  position: relative;
+  width: 100%;
+  &:after {
+    content: "\f0dc";
+    cursor: pointer;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    pointer-events: none;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+  }
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background: transparent;
+    border: 0;
+    border-radius: inherit;
+    color: inherit;
+    font-size: 0.9rem;
+    padding-right: 30px;
+    cursor: pointer;
+    &::-ms-expand {
+      display: none;
+    }
   }
 }
 
@@ -148,5 +184,53 @@ body.modal-open {
   }
   to {
     margin-top: 10%;
+  }
+}
+
+// Sort form styles
+.filter-sort-form {
+  background: change-color($black, $lightness: 34%);
+  color: change-color($teal, $lightness: 82%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-bottom: 15px;
+  padding: 15px;
+  label {
+    display: block;
+    font-size: 0.7rem;
+    margin-bottom: 7px;
+    text-transform: uppercase;
+  }
+  input {
+    border: 0;
+    border-radius: 3px;
+  }
+  .row.row-select {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-top: 20px;
+    @media all and (min-width: 450px) {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+    }
+    .form-group:not(:last-child) {
+      margin-bottom: 20px;
+      @media all and (min-width: 450px) {
+        margin-right: 20px;
+        margin-bottom: 0;
+      }
+    }
   }
 }
