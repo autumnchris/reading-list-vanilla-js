@@ -1,73 +1,91 @@
-const ReadingList = (() => {
+import InfoMessage from './InfoMessage';
+import getReadingList from '../utils/getReadingList';
 
-  function renderReadingListArray(readingList) {
-
-    if (readingList) {
-      renderReadingListContent(readingList);
-      localStorage.setItem('readingList', JSON.stringify(readingList));
-    }
-    return JSON.parse(localStorage.getItem('readingList')) || [];
+class ReadingList {
+  constructor() {
+    this.infoMessage = new InfoMessage();
   }
 
-  function renderReadingListContent(readingList) {
+  deleteBook(readingListData, bookID) {
 
-    if (readingList.length === 0) {
-      document.querySelector('.reading-list-content').innerHTML = `<p class="message info-message"><span class="fa fa-info-circle fa-lg fa-fw" aria-hidden="true"></span> You currently have no books in your reading list. Click the Add Book button to get started.</p>`;
+    if (confirm('Are you sure you want to remove this book from your reading list?')) {
+      readingListData = readingListData.filter(book => book.id !== Number(bookID));
+      this.removeReadingListContent('.reading-list-container');
+      getReadingList(readingListData);
+      this.renderReadingListContent(readingListData, '.reading-list-container');
     }
-    else {
-      document.querySelector('.reading-list-content').innerHTML = readingList.sort((a, b) => a.titleValue.toLowerCase().localeCompare(b.titleValue.toLowerCase())).map((book, index) => {
-        return `<div class="book-card">
+  }
+
+  toggleRead(event, readingListData, bookID) {
+    if (event.type === 'click' && !event.target.matches('input[type=checkbox]')) return;
+
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      document.getElementById(`read-${bookID}`).checked = !document.getElementById(`read-${bookID}`).checked;
+    }
+
+    if (event.key === 'Enter' || event.type === 'click') {
+      readingListData = readingListData.map(book => {
+        if (book.id === Number(bookID)) book.read = !book.read;
+        return book;
+      });
+      getReadingList(readingListData);
+    }
+  }
+
+  // DOM methods
+  renderBooks(readingListData) {
+    const readingList = document.querySelector('.reading-list');
+    readingList.innerHTML = readingListData.sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase())).map(book => {
+      return `
+        <div class="book-card">
           <div class="row">
-            <div class="title">${book.titleValue}</div>
-            <button type="button" class="button delete-book-button" data-index="${index}" aria-label="delete book" title="Delete">
+            <div class="title">${book.title}</div>
+            <button type="button" class="button delete-book-button" data-id="${book.id}" aria-label="delete book" title="Delete">
               <span class="fa fa-trash-alt fa-sm delete-icon"></span>
             </button>
           </div>
           <div class="row">
-            <div class="book-info author"><span class="book-info-label">by </span>${book.authorValue}</div>
-            <div class="book-info pages"><span class="book-info-label">Pages </span>${book.pagesValue}</div>
+            <div class="book-info author"><span class="book-info-label">by </span>${book.author}</div>
+            <div class="book-info pages"><span class="book-info-label">Pages </span>${book.pages}</div>
             <form novalidate>
               <div class="form-group">
-                <label class="check-label" for="read-${index}">Read
-                  <input type="checkbox" data-index="${index}" name="readValue" tabindex="-1" id="read-${index}" ${book.readValue ? 'checked' : ''} />
-                  <span class="checkmark" tabindex="0" data-index="${index}"></span>
+                <label class="check-label" for="read-${book.id}">Read
+                  <input type="checkbox" name="readValue" tabindex="-1" data-id="${book.id}" id="read-${book.id}" ${book.read ? 'checked' : ''} />
+                  <span class="checkmark" tabindex="0" data-id="${book.id}"></span>
                 </label>
               </div>
             </form>
           </div>
-        </div>`
-      }).join('');
+        </div>
+      `;
+    }).join('');
+  }
+
+  renderReadingList(readingListData, location) {
+    const readingList = document.createElement('div');
+    readingList.classList.add('reading-list');
+    document.querySelector(location).appendChild(readingList);
+    this.renderBooks(readingListData);
+  }
+
+  renderReadingListContent(readingListData, location) {
+    const readingListContent = document.createElement('div');
+    readingListContent.classList.add('reading-list-content');
+    document.querySelector(location).appendChild(readingListContent);
+
+    if (readingListData.length === 0) {
+      this.infoMessage.renderInfoMessage('You currently have no books in your reading list. Click the Add Book button to get started.', '.reading-list-content');
+    }
+    else {
+      this.renderReadingList(readingListData, '.reading-list-content');
     }
   }
 
-  function deleteBook(event, readingList) {
-
-    if (confirm('Are you sure you want to remove this book from your reading list?')) {
-      readingList.splice(event.target.dataset.index, 1);
-      renderReadingListArray(readingList);
-    }
+  removeReadingListContent(location) {
+    const readingListContent = document.querySelector(`${location} .reading-list-content`);
+    readingListContent ? document.querySelector(location).removeChild(readingListContent) : null;
   }
+}
 
-  function toggleRead(event, readingList) {
-    if (event.type === 'click' && !event.target.matches('input[type=checkbox]')) return;
-
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      document.getElementById(`read-${event.target.dataset.index}`).checked = !document.getElementById(`read-${event.target.dataset.index}`).checked;
-    }
-
-    if (event.keyCode === 13 || event.type === 'click') {
-      readingList[event.target.dataset.index].readValue = !readingList[event.target.dataset.index].readValue;
-      localStorage.setItem('readingList', JSON.stringify(readingList));
-    }
-  }
-
-  return {
-    renderReadingListArray,
-    renderReadingListContent,
-    deleteBook,
-    toggleRead
-  };
-})();
-
-export { ReadingList };
+export default ReadingList;
