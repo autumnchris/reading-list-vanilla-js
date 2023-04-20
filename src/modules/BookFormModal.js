@@ -1,5 +1,6 @@
 import ErrorMessage from './ErrorMessage';
 import ReadingList from './ReadingList';
+import Sidebar from './Sidebar';
 import Book from './Book';
 import getReadingList from '../utils/getReadingList';
 
@@ -7,6 +8,7 @@ class BookFormModal {
   constructor() {
     this.errorMessage = new ErrorMessage();
     this.readingList = new ReadingList();
+    this.sidebar = new Sidebar();
     this.formValues = {
       title: '',
       author: '',
@@ -64,9 +66,11 @@ class BookFormModal {
   addNewBook(formValues) {
     let readingListData = getReadingList();
     const newBook = new Book(formValues.title, formValues.author, formValues.pages, formValues.read, Date.now());
+    this.sidebar.removeSidebar('.reading-list-container');
     this.readingList.removeReadingListContent('.reading-list-container');
     readingListData.push(newBook);
     getReadingList(readingListData);
+    this.sidebar.renderSidebar('.reading-list-container');
     this.readingList.renderReadingListContent(readingListData, '.reading-list-container');
   }
 

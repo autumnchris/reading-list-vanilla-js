@@ -1,17 +1,21 @@
 import InfoMessage from './InfoMessage';
+import Sidebar from './Sidebar';
 import getReadingList from '../utils/getReadingList';
 
 class ReadingList {
   constructor() {
     this.infoMessage = new InfoMessage();
+    this.sidebar = new Sidebar();
   }
 
   deleteBook(readingListData, bookID) {
 
     if (confirm('Are you sure you want to remove this book from your reading list?')) {
       readingListData = readingListData.filter(book => book.id !== Number(bookID));
+      this.sidebar.removeSidebar('.reading-list-container');
       this.removeReadingListContent('.reading-list-container');
       getReadingList(readingListData);
+      this.sidebar.renderSidebar('.reading-list-container');
       this.renderReadingListContent(readingListData, '.reading-list-container');
     }
   }
@@ -29,7 +33,11 @@ class ReadingList {
         if (book.id === Number(bookID)) book.read = !book.read;
         return book;
       });
+      this.sidebar.removeSidebar('.reading-list-container');
+      this.removeReadingListContent('.reading-list-container');
       getReadingList(readingListData);
+      this.sidebar.renderSidebar('.reading-list-container');
+      this.renderReadingListContent(readingListData, '.reading-list-container');
     }
   }
 
@@ -71,7 +79,7 @@ class ReadingList {
 
   renderReadingListContent(readingListData, location) {
     const readingListContent = document.createElement('div');
-    readingListContent.classList.add('reading-list-content');
+    readingListContent.classList.add('col', 'reading-list-content');
     document.querySelector(location).appendChild(readingListContent);
 
     if (readingListData.length === 0) {
