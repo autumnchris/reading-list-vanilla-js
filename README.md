@@ -2,7 +2,7 @@
 
 A front-end web app that uses LocalStorage to store and present entered data for the user's personal reading list. Built with vanilla JS.
 
-Inspired by the [Library assignment](https://www.theodinproject.com/lessons/node-path-javascript-library) as part of the curriculum for the [JavaScript course](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript) on [The Odin Project](https://www.theodinproject.com).
+Inspired by the [Library assignment](https://www.theodinproject.com/lessons/node-path-javascript-library) as part of the curriculum for the [JavaScript Course](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript) on [The Odin Project](https://www.theodinproject.com).
 
 ---
 
