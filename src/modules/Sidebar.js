@@ -14,7 +14,7 @@ class Sidebar {
   }
 
   renderSidebar(location) {
-    const sidebar = document.createElement('div');
+    const sidebar = document.createElement('aside');
     sidebar.classList.add('col', 'sidebar');
     sidebar.innerHTML = `
       <div class="button-group">
