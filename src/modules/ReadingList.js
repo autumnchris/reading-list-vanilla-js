@@ -49,7 +49,7 @@ class ReadingList {
         <div class="book-card">
           <div class="row">
             <div class="title">${book.title}</div>
-            <button type="button" class="button delete-book-button" data-id="${book.id}" aria-label="delete book" title="Delete">
+            <button type="button" class="button delete-book-button" data-id="${book.id}" aria-label="delete book ${book.title} by ${book.author}" title="Delete">
               <span class="fa-solid fa-trash fa-sm icon"></span>
             </button>
           </div>
