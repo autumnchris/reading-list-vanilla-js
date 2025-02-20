@@ -73,7 +73,7 @@ class BookFormModal {
     this.sidebar.renderSidebar('.reading-list-container');
     this.readingList.renderReadingListContent(readingListData, '.reading-list-container');
   }
-
+  
   // DOM methods
   renderBookFormModal(location) {
     const bookFormModal = document.createElement('div');
@@ -86,19 +86,19 @@ class BookFormModal {
           <form class="new-book-form" novalidate>
             <div class="form-group">
               <label for="title-value">Title</label>
-              <input type="text" class="title-value" name="title" value="${this.formValues.title}" id="title-value" required />
+              <input type="text" class="title-value" name="title" value="${this.formValues.title}" id="title-value" autocomplete="off" required />
             </div>
             <div class="form-group">
               <label for="author-value">Author</label>
-              <input type="text" class="author-value" name="author" value="${this.formValues.author}" id="author-value" required />
+              <input type="text" class="author-value" name="author" value="${this.formValues.author}" id="author-value" autocomplete="off" required />
             </div>
             <div class="form-group">
               <label for="pages-value">Number of Pages</label>
-              <input type="text" class="pages-value" name="pages" inputmode="numeric" value="${this.formValues.pages}" id="pages-value" required />
+              <input type="text" class="pages-value" name="pages" inputmode="numeric" value="${this.formValues.pages}" id="pages-value" autocomplete="off" required />
             </div>
             <div class="form-group">
               <label class="check-label" for="read-value">Read
-                <input type="checkbox" name="read" tabindex="-1" id="read-value" ${this.formValues.read ? 'checked' : ''} />
+                <input type="checkbox" name="read" tabindex="-1" id="read-value" ${this.formValues.read ? 'checked' : ''} autocomplete="off" />
                 <span class="checkmark" tabindex="0" data-input-id="read-value"></span>
               </label>
             </div>

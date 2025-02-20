@@ -50,7 +50,7 @@ class ReadingList {
           <div class="row">
             <div class="title">${book.title}</div>
             <button type="button" class="button delete-book-button" data-id="${book.id}" aria-label="delete book" title="Delete">
-              <span class="fa fa-trash-alt fa-sm delete-icon"></span>
+              <span class="fa-solid fa-trash fa-sm icon"></span>
             </button>
           </div>
           <div class="row">
@@ -59,7 +59,7 @@ class ReadingList {
             <form novalidate>
               <div class="form-group">
                 <label class="check-label" for="read-${book.id}">Read
-                  <input type="checkbox" name="readValue" tabindex="-1" data-id="${book.id}" id="read-${book.id}" ${book.read ? 'checked' : ''} />
+                  <input type="checkbox" name="readValue" tabindex="-1" data-id="${book.id}" id="read-${book.id}" autocomplete="off" ${book.read ? 'checked' : ''} />
                   <span class="checkmark" tabindex="0" data-id="${book.id}"></span>
                 </label>
               </div>

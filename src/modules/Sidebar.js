@@ -13,12 +13,12 @@ class Sidebar {
     document.querySelector(location).appendChild(readingListStats);
   }
 
-  renderSidebar (location) {
+  renderSidebar(location) {
     const sidebar = document.createElement('div');
     sidebar.classList.add('col', 'sidebar');
     sidebar.innerHTML = `
       <div class="button-group">
-        <button type="button" class="button add-book-button"><span class="fas fa-plus" aria-hidden="true"></span> Add Book</button>
+        <button type="button" class="button add-book-button"><span class="icon fa-solid fa-plus" aria-hidden="true"></span> Add Book</button>
       </div>
     `;
     document.querySelector(location).appendChild(sidebar);
