@@ -33,16 +33,16 @@ module.exports = {
       },
       {
         test: /\.(jpg|png|svg)$/,
-        loader: "file-loader",
+        loader: 'file-loader',
         options: {
-          outputPath: "assets/images",
+          outputPath: 'assets/images',
         }
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        loader: "file-loader",
+        loader: 'file-loader',
         options: {
-          outputPath: "assets/fonts",
+          outputPath: 'assets/fonts',
         }
       }
     ]
