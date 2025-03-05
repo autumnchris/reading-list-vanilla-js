@@ -133,7 +133,7 @@ class ReadingList {
     if (wasEmpty) {
       this.filterSortForm.renderFilterSortForm('.reading-list-content', this.filterSortFormData);
     }
-    
+
     this.updateViewableReadingList();
 
     this.sidebar.removeReadingListStats('.sidebar');
@@ -179,12 +179,12 @@ class ReadingList {
   toggleRead(event, bookID, readingListData) {
     if (event.type === 'click' && !event.target.matches('input[type=checkbox]')) return;
 
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       document.getElementById(`read-${bookID}`).checked = !document.getElementById(`read-${bookID}`).checked;
     }
 
-    if (event.key === 'Enter' || event.type === 'click') {
+    if (event.key === 'Enter' || event.key === ' ' || event.type === 'click') {
       readingListData = readingListData.map(book => {
         if (book.id === Number(bookID)) {
           return {

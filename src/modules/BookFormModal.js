@@ -20,7 +20,7 @@ class BookFormModal {
   // Toggle a book's Read status in the Book Form Modal with keyboard
   handleKeyDown(event) {
 
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       document.getElementById(event.target.dataset.inputId).checked = !document.getElementById(event.target.dataset.inputId).checked;
       this.formValues.read = document.getElementById(event.target.dataset.inputId).checked;
