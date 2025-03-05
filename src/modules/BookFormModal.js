@@ -1,6 +1,5 @@
 import ErrorMessage from './ErrorMessage';
 import ReadingList from './ReadingList';
-import Sidebar from './Sidebar';
 import Book from './Book';
 import getReadingList from '../utils/getReadingList';
 
@@ -8,7 +7,8 @@ class BookFormModal {
   constructor() {
     this.errorMessage = new ErrorMessage();
     this.readingList = new ReadingList();
-    this.sidebar = new Sidebar();
+    this.bookFormType = null;
+    this.currentBookID = null;
     this.formValues = {
       title: '',
       author: '',
@@ -17,11 +17,7 @@ class BookFormModal {
     };
   }
 
-  handleChange(event) {
-    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
-    this.formValues[event.target.name] = value;
-  }
-
+  // Toggle a book's Read status in the Book Form Modal with keyboard
   handleKeyDown(event) {
 
     if (event.key === 'Enter') {
@@ -31,6 +27,7 @@ class BookFormModal {
     }
   }
 
+  // Save a book in form modal
   handleSubmit(event, formValues) {
     event.preventDefault();
     this.errorMessage.removeErrorMessage('#modal .modal-body');
@@ -52,58 +49,95 @@ class BookFormModal {
       this.errorMessage.renderErrorMessage('The number of pages must be a number greater than 0.', '#modal .modal-body');
     }
     else {
-      this.addNewBook(formValues);
-      this.removeBookFormModal('main');
-      this.formValues = {
-        title: '',
-        author: '',
-        pages: '',
-        read: false
-      };
+
+      if (this.bookFormType === 'edit') {
+        this.editBook(formValues, [...getReadingList()]);
+      }
+      else {
+        this.addNewBook(formValues, [...getReadingList()]);
+      }
+      this.closeModal();
     }
   }
 
-  addNewBook(formValues) {
-    let readingListData = getReadingList();
+  // Add a new book to the reading list
+  addNewBook(formValues, readingListData) {
     const newBook = new Book(formValues.title, formValues.author, formValues.pages, formValues.read, Date.now());
-    this.sidebar.removeSidebar('.reading-list-container');
-    this.readingList.removeReadingListContent('.reading-list-container');
-    readingListData.push(newBook);
-    getReadingList(readingListData);
-    this.sidebar.renderSidebar('.reading-list-container');
-    this.readingList.renderReadingListContent(readingListData, '.reading-list-container');
+    this.readingList.addNewBook(newBook, readingListData);
+  }
+
+  // Edit a book in the reading list
+  editBook(formValues, readingListData) {
+    this.readingList.editBook(formValues, this.currentBookID, readingListData);
+  }
+
+  // Open book form modal
+  openModal(bookFormType, readingListData = null, bookID = null) {
+    let bookToBeEdited;
+    let formData;
+
+    if (bookFormType === 'edit') {
+      this.bookFormType = 'edit';
+      this.currentBookID = bookID;
+
+      bookToBeEdited = readingListData.find(book => book.id === Number(bookID));
+      formData = {
+        title: bookToBeEdited.title,
+        author: bookToBeEdited.author,
+        pages: bookToBeEdited.pages,
+        read: bookToBeEdited.read
+      };
+    }
+    else {
+      this.bookFormType = 'add';
+      formData = this.formValues;
+    }
+    this.renderBookFormModal('main', formData);
+  }
+
+  // Close book form modal
+  closeModal() {
+    this.removeBookFormModal('main');
+    this.formValues = {
+      ...this.formValues,
+      title: '',
+      author: '',
+      pages: '',
+      read: false
+    };
+    this.currentBookID = null;
   }
   
   // DOM methods
-  renderBookFormModal(location) {
+  renderBookFormModal(location, formData) {
     const bookFormModal = document.createElement('div');
     bookFormModal.setAttribute('id', 'modal');
     bookFormModal.classList.add('modal');
     bookFormModal.innerHTML = `
       <div class="modal-content">
-        <div class="modal-header">Add New Book</div>
+        <div class="modal-header">${this.bookFormType === 'edit' ? 'Edit' : 'Add New'} Book</div>
         <div class="modal-body">
           <form class="new-book-form" novalidate>
             <div class="form-group">
               <label for="title-value">Title</label>
-              <input type="text" class="title-value" name="title" value="${this.formValues.title}" id="title-value" autocomplete="off" required />
+              <input type="text" class="title-value" name="title" value="${formData.title}" id="title-value" autocomplete="off" required />
             </div>
             <div class="form-group">
               <label for="author-value">Author</label>
-              <input type="text" class="author-value" name="author" value="${this.formValues.author}" id="author-value" autocomplete="off" required />
+              <input type="text" class="author-value" name="author" value="${formData.author}" id="author-value" autocomplete="off" required />
             </div>
             <div class="form-group">
               <label for="pages-value">Number of Pages</label>
-              <input type="text" class="pages-value" name="pages" inputmode="numeric" value="${this.formValues.pages}" id="pages-value" autocomplete="off" required />
+              <input type="text" class="pages-value" name="pages" inputmode="numeric" value="${formData.pages}" id="pages-value" autocomplete="off" required />
             </div>
             <div class="form-group">
               <label class="check-label" for="read-value">Read
-                <input type="checkbox" name="read" tabindex="-1" id="read-value" ${this.formValues.read ? 'checked' : ''} autocomplete="off" />
+                <input type="checkbox" name="read" tabindex="-1" id="read-value" ${formData.read ? 'checked' : ''} autocomplete="off" />
                 <span class="checkmark" tabindex="0" data-input-id="read-value"></span>
               </label>
             </div>
             <div class="button-group">
-              <button type="submit" class="button modal-button">Add</button>
+              <button type="submit" class="button modal-button">Save</button>
               <button type="button" class="button modal-button cancel">Cancel</button>
             </div>
           </form>
