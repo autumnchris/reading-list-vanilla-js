@@ -10,10 +10,9 @@ class App {
     this.header = new Header();
     this.footer = new Footer();
     this.sidebar = new Sidebar();
-    this.readingList = new ReadingList();
-    this.bookFormModal = new BookFormModal();
+    this.readingList = new ReadingList(this.sidebar);
+    this.bookFormModal = new BookFormModal(this.readingList);
     this.renderApp();
-    this.events();
   }
 
   // Event listeners
@@ -65,6 +64,7 @@ class App {
     this.footer.renderFooter('#app');
     this.sidebar.renderSidebar('.reading-list-container');
     this.readingList.renderReadingListContent([...getReadingList()], '.reading-list-container');
+    this.events();
   }
 
   renderMain(location) {

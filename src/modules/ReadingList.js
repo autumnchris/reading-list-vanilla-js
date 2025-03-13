@@ -1,12 +1,11 @@
 import InfoMessage from './InfoMessage';
-import Sidebar from './Sidebar';
 import FilterSortForm from './FilterSortForm';
 import getReadingList from '../utils/getReadingList';
 
 class ReadingList {
-  constructor() {
+  constructor(sidebarInstance) {
     this.infoMessage = new InfoMessage();
-    this.sidebar = new Sidebar();
+    this.sidebar = sidebarInstance;
     this.filterSortForm = new FilterSortForm();
     this.viewableReadingList = [...getReadingList()];
     this.filterSortFormData = {

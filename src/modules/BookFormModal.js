@@ -1,12 +1,11 @@
 import ErrorMessage from './ErrorMessage';
-import ReadingList from './ReadingList';
 import Book from './Book';
 import getReadingList from '../utils/getReadingList';
 
 class BookFormModal {
-  constructor() {
+  constructor(readingListInstance) {
     this.errorMessage = new ErrorMessage();
-    this.readingList = new ReadingList();
+    this.readingList = readingListInstance;
     this.bookFormType = null;
     this.currentBookID = null;
     this.formValues = {
